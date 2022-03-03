@@ -4,37 +4,30 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.employeeinformation.databinding.ActivityMainBinding
-import kotlinx.android.synthetic.main.activity_details.*
+import com.example.employeeinformation.databinding.ActivityDetailsBinding
 
 class DetailsActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivityDetailsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         val textWatcherClass = TextWatcherClass(binding.root)
-        binding.name.addTextChangedListener( textWatcherClass.textWatcher)
-        binding.age.addTextChangedListener( textWatcherClass.textWatcher)
-        binding.role.addTextChangedListener( textWatcherClass.textWatcher)
-        binding.experience.addTextChangedListener( textWatcherClass.textWatcher)
-        submitData.setOnClickListener {
+        binding.name.addTextChangedListener(textWatcherClass.textWatcher)
+        binding.age.addTextChangedListener(textWatcherClass.textWatcher)
+        binding.role.addTextChangedListener(textWatcherClass.textWatcher)
+        binding.experience.addTextChangedListener(textWatcherClass.textWatcher)
+        binding.submitData.setOnClickListener {
             val employeeAge = Integer.parseInt(binding.age.text.toString().trim())
             val employeeExperience = Integer.parseInt(binding.experience.text.toString().trim())
-            if (ageValidation(employeeAge) && experienceValidation(employeeExperience, employeeAge
-                )
-            ) {
-                val intent = Intent(this, MainActivity::class.java)
-                intent.putExtra(NAME, binding.name.text.toString().trim())
-                intent.putExtra(AGE, binding.age.text.toString().trim())
-                intent.putExtra(ROLE, binding.age.text.toString().trim())
-                intent.putExtra(EXPERIENCE, binding.experience.text.toString().trim())
-                startActivity(intent)
+            val validationResult =
+                ageValidation(employeeAge) && experienceValidation(employeeExperience, employeeAge)
+            if (validationResult) {
+                dataPassingFromOneActivityToOtherActivity()
             }
 
         }
     }
-
 
     fun ageValidation(employeeAge: Int): Boolean {
         if (employeeAge > 0 && employeeAge < 150) {
@@ -54,5 +47,14 @@ class DetailsActivity : AppCompatActivity() {
             return false
 
         }
+    }
+
+    fun dataPassingFromOneActivityToOtherActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        intent.putExtra(NAME, binding.name.text.toString().trim())
+        intent.putExtra(AGE, binding.age.text.toString().trim())
+        intent.putExtra(ROLE, binding.age.text.toString().trim())
+        intent.putExtra(EXPERIENCE, binding.experience.text.toString().trim())
+        startActivity(intent)
     }
 }
