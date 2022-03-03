@@ -6,9 +6,11 @@
     android:background="#FFFFFF"
     android:columnCount="2"
     android:rowCount="2"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    >
 
     <TextView
+        android:text="@string/Name"
         android:id="@+id/name"
         android:layout_width="130dp"
         android:layout_height="90dp"
@@ -16,6 +18,7 @@
         android:textColor="@color/black" />
 
     <TextView
+        android:text="@string/Age"
         android:id="@+id/age"
         android:layout_width="130dp"
         android:layout_height="90dp"
@@ -23,6 +26,7 @@
         android:textColor="@color/black" />
 
     <TextView
+        android:text="@string/Role"
         android:id="@+id/role"
         android:layout_width="130dp"
         android:layout_height="90dp"
@@ -30,6 +34,7 @@
         android:textColor="@color/black" />
 
     <TextView
+        android:text="@string/Experience"
         android:id="@+id/experience"
         android:layout_width="130dp"
         android:layout_height="90dp"

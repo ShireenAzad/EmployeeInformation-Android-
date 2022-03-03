@@ -12,7 +12,7 @@ class DetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val textWatcherClass = TextWatcherClass(binding.root)
+        val textWatcherClass = TextWatcherClass(binding)
         binding.name.addTextChangedListener(textWatcherClass.textWatcher)
         binding.age.addTextChangedListener(textWatcherClass.textWatcher)
         binding.role.addTextChangedListener(textWatcherClass.textWatcher)
