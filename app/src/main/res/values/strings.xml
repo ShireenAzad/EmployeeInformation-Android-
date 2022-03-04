@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">EmployeeInformation</string>
+    <string name="app_name">EmployeeDetails</string>
+    <string name="employee_details">Employee Details</string>
+    <string name="enter_employee_name">Enter Employee Name</string>
+    <string name="enter_employee_age">Enter Employee Age</string>
+    <string name="enter_employee_role">Enter Employee Role</string>
+    <string name="enter_employee_experience">Enter Employee Experience</string>
+    <string name="submit">Submit</string>
+    <string name="Name">Employee Name:%1s</string>
+    <string name="Age">Employee Age:%2s</string>
+    <string name="Role">Employee Role:%3s</string>
+    <string name="Experience">Employee Experience:%4s</string>
 </resources>
